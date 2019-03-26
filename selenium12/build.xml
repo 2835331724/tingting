@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="selenium12">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="F:/learning/测试文档/文档/selenium/eclispace/eclipse1/"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="selenium12.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="tool/selenium-server-standalone-2.53.0.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="selenium12.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="banksystem">
+        <java classname="homework.banksystem" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="caozuoti">
+        <java classname="hanjia.caozuoti" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="filedemo">
+        <java classname="selenium12.filedemo" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="FindEle">
+        <java classname="ket.FindEle" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="four (2)">
+        <java classname="test2.four" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="four_yewu">
+        <java classname="kt.four_yewu" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="haha (1)">
+        <java classname="Tuesday.haha" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="Junit">
+        <java classname="selenium12.Junit" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="JunitTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="selenium12.JunitTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="selenium12.classpath"/>
+        </junit>
+    </target>
+    <target name="one (6)">
+        <java classname="selenium12.one" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="one (7)">
+        <java classname="ket.one" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="task1">
+        <java classname="selenium12.task1" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="test">
+        <java classname="hanjia.test" failonerror="true" fork="yes">
+            <classpath refid="selenium12.classpath"/>
+        </java>
+    </target>
+    <target name="zhouceTest (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="test.zhouceTest" todir="${junit.output.dir}"/>
+            <jvmarg line="-ea"/>
+            <classpath refid="selenium12.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
